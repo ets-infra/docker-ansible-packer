@@ -1,4 +1,4 @@
-FROM adimian/docker-ansible
+FROM etsinfra/docker-ansible
 
 MAINTAINER Kenny Van de Maele <kenny@adimian.com>
 
