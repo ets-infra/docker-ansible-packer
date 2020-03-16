@@ -11,5 +11,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     rm -f *.zip && \
     apt remove wget unzip -y
 
+RUN adduser packer && usermod -a -G sudo packer
+
+USER packer
+
 # default command: display packer version
 CMD [ "packer", "--version" ]
