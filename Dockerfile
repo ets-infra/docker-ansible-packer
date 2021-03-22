@@ -9,10 +9,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     unzip packer_${VER}_linux_amd64.zip && \
     mv packer /usr/local/bin && \
     rm -f *.zip && \
-    curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm" && \
-    yum install -y session-manager-plugin.rpm && \
-    session-manager-plugin && \
-    rm -f *.rpm && \
+    snap install amazon-ssm-agent --classic && \
+    snap list amazon-ssm-agent && \
+    snap start amazon-ssm-agent && \
+    snap services amazon-ssm-agent && \
     apt remove wget unzip -y
 
 RUN adduser packer && usermod -a -G sudo packer
