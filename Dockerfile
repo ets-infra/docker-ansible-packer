@@ -10,7 +10,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     mv packer /usr/local/bin && \
     rm -f *.zip && \
     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm" && \
-    sudo yum install -y session-manager-plugin.rpm && \
+    yum install -y session-manager-plugin.rpm && \
     session-manager-plugin && \
     rm -f *.rpm && \
     apt remove wget unzip -y
